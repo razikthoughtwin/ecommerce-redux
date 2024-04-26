@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import "./App.css";
 import ProductListing from "./component/ProductListing";
-import axios from "axios";
-import { setProducts } from "./redux/action/action";
+// import axios from "axios";
+import { fetchproducts} from "./redux/action/action";
 import { useEffect } from "react";
 import Header from "./component/Header";
 import Banner from "./component/Banner";
@@ -17,12 +17,15 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get("https://fakestoreapi.com/products");
-      console.log("??????????????????",response.data)
-      dispatch(setProducts(response.data));
-    };
-    fetchData();
+    // const fetchData = async () => {
+    //   const response = await axios.get("https://fakestoreapi.com/products");
+    //   console.log("??????????????????",response.data)
+    //   dispatch(setProducts(response.data));
+    // };
+    // fetchData();
+
+    dispatch(fetchproducts());
+
   }, [dispatch]);
 
   const token = localStorage.getItem("token");

@@ -1,4 +1,14 @@
+import axios from "axios";
 import { actiontypes } from "../constant/constant";
+
+
+export const fetchproducts=()=>{
+  return async (dispatch)=>{
+    const response=await axios.get("https://fakestoreapi.com/products")
+    dispatch({type:actiontypes.FETCH_PRODUCTS,payload:response.data})
+  }
+}
+
 
 export const setProducts = (products) => {
   return {

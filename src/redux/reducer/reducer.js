@@ -1,4 +1,5 @@
 import { actiontypes } from "../constant/constant";
+
 const initialState = {
   products: [],
   filterdata: [],
@@ -10,6 +11,8 @@ export const productReducer = (state = initialState, { type, payload }) => {
   console.log("productreducer", payload);
   switch (type) {
     case actiontypes.SET_PRODUCTS:
+      return { ...state, products: payload };
+    case actiontypes.FETCH_PRODUCTS:
       return { ...state, products: payload };
     case actiontypes.SET_MENS_CLOTHING:
       const productlist = state.products;
